@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,7 @@ export class RegisterComponent implements OnInit {
     "password": []
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -42,7 +43,8 @@ export class RegisterComponent implements OnInit {
       password: this.password
     };
     this.http.post('/register', data).subscribe(value => {
-
+      alert("Registration succesfull");
+      this.router.navigate(['/login']);
     }, errorResponse => {
       if (errorResponse.status === 400) {
         this.genrateValidationErros(errorResponse.error.errors);

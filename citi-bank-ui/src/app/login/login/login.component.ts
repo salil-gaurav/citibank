@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     sessionStorage.removeItem('login');
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
       .set('password', this.password);
     this.http.post('/validateCredentials', data, headers).subscribe(value => {
       sessionStorage.setItem('login', btoa("YES"));
+      this.router.navigate(['/home']);
     }, error => {
       alert("Email or password is incorrect");
     }

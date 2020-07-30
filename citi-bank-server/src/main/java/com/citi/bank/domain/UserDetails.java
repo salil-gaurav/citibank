@@ -30,7 +30,7 @@ public class UserDetails implements Serializable {
     private String address;
 
     @NotEmpty(message = "Phone number is mandatory")
-    @Pattern(regexp = "^\\d{2}-\\d{3}-\\d{4}$", message = "Phone number is  not valid")
+    @Pattern(regexp = "^\\d{3}-\\d{3}-\\d{4}$", message = "Phone number is  not valid")
     private String phoneNumber;
 
     @NotEmpty(message = "SSN is mandatory")
