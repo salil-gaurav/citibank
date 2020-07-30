@@ -1,0 +1,27 @@
+<div class="account" *ngIf="account; else noAccount">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{account.accountName}} - {{account.accountType}}</h5>
+            <p class="card-text">{{account.currentMoney.currency}} {{account.currentMoney.amount | number : '1.2-2'}} is
+                account balance.</p>
+        </div>
+    </div>
+</div>
+
+<div class="transaction" *ngIf="transaction.length; else noTransaction">
+    <div class="card">
+        <h2>Transactions :</h2>
+        <div class="card-body" *ngFor="let t of transaction">
+            <h5 class="card-title">{{t.remarks}}</h5>
+            <p class="card-text">{{ t.amount | number : '1.2-2'}} worth transaction.</p>
+        </div>
+    </div>
+</div>
+
+<ng-template #noAccount>
+    <p class="no-account">Account not found.</p>
+</ng-template>
+
+<ng-template #noTransaction>
+    <p class="no-account">No transaction</p>
+</ng-template>

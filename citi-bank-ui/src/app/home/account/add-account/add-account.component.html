@@ -1,0 +1,39 @@
+<div class="add-account">
+    <h1>Add Account</h1>
+    <form>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="validationCustom04">Account type</label>
+                <select class="custom-select" id="accountType" [(ngModel)]="accountType" name="accountType"
+                    [class.is-invalid]="errors['accountType'].length">
+                    <option value=''>Choose Account type</option>
+                    <option value="SAVING">SAVING</option>
+                    <option value="CURRENT">CURRENT</option>
+                    <option value="MONEY_MARKET">MONEY MARKET</option>
+                </select>
+                <div class="invalid-feedback" *ngFor="let em of errors['accountType']">
+                    {{em}}
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="accountName">Account name</label>
+                <input type="text" [(ngModel)]="accountName" name="accountName" class="form-control" id="accountName"
+                    aria-describedby="accountName" [class.is-invalid]="errors['accountName'].length" />
+                <div class="invalid-feedback" *ngFor="let em of errors['accountName']">
+                    {{em}}
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" [(ngModel)]="amount" name="amount" class="form-control" id="amount"
+                    aria-describedby="amount" />
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="create()">Submit</button>
+    </form>
+</div>

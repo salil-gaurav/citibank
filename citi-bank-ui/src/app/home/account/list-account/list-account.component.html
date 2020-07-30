@@ -1,0 +1,16 @@
+<div class="account-list" *ngIf="accounts.length else addAccount">
+    <div class="account-content" *ngFor="let account of accounts">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{account.accountName}} - {{account.accountType}}</h5>
+                <p class="card-text">{{account.currentMoney.currency}} {{account.currentMoney.amount | number : '1.2-2'}}</p>
+                <button class="btn btn-primary" (click)="go(account.accountId)">View</button>&nbsp;&nbsp;
+                <button class="btn btn-secondary" (click)="delete(account.accountId)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #addAccount>
+    <p class="no-account">You have no accounts, please consider <a href="#/home/account/add">adding</a> one.</p>
+</ng-template>

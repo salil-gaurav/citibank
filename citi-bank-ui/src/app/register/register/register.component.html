@@ -1,0 +1,69 @@
+<h1>Register</h1>
+<form>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" [(ngModel)]="email" name="email" class="form-control" id="email" aria-describedby="email"
+                placeholder="Enter email" [class.is-invalid]="errors['user.email'].length" />
+            <div class="invalid-feedback" *ngFor="let em of errors['user.email']">
+                {{em}}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="email">First Name</label>
+            <input type="email" [(ngModel)]="firstName" name="firstName" class="form-control" id="firstName"
+                aria-describedby="firstName" placeholder="Enter first name"
+                [class.is-invalid]="errors['user.firstName'].length" />
+            <div class="invalid-feedback" *ngFor="let em of errors['user.firstName']">
+                {{em}}
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="email">Last Name</label>
+            <input type="email" [(ngModel)]="lastName" name="lastName" class="form-control" id="lastName"
+                aria-describedby="lastName" placeholder="Enter last name"
+                [class.is-invalid]="errors['user.lastName'].length" />
+            <div class="invalid-feedback" *ngFor="let em of errors['user.lastName']">
+                {{em}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Address</label>
+        <input type="email" [(ngModel)]="address" name="address" class="form-control" id="address"
+            aria-describedby="address" placeholder="Enter address" [class.is-invalid]="errors['user.address'].length" />
+        <div class="invalid-feedback" *ngFor="let em of errors['user.address']">
+            {{em}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Phone number</label>
+        <input type="email" [(ngModel)]="phoneNumber" name="phoneNumber" class="form-control" id="phoneNumber"
+            aria-describedby="phoneNumber" placeholder="Enter phone number xxx-xxx-xxxx"
+            [class.is-invalid]="errors['user.phoneNumber'].length" />
+        <div class="invalid-feedback" *ngFor="let em of errors['user.phoneNumber']">
+            {{em}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">SSN</label>
+        <input type="email" [(ngModel)]="ssn" name="ssn" class="form-control" id="ssn" aria-describedby="ssn"
+            placeholder="Enter SSN xxx-xx-xxxx" [class.is-invalid]="errors['user.ssn'].length" />
+        <div class="invalid-feedback" *ngFor="let em of errors['user.ssn']">
+            {{em}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password"
+            placeholder="Password" [class.is-invalid]="errors['password'].length" />
+        <div class="invalid-feedback" *ngFor="let em of errors['password']">
+            {{em}}
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="register()">Submit</button>
+    <br>
+    <a href='#/login'>Click here to Login.</a>
+</form>

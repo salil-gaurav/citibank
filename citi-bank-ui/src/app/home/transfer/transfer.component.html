@@ -1,0 +1,49 @@
+<h1>Tranfer fund</h1>
+<form>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="senderAccountId">From</label>
+            <select class="custom-select" id="senderAccountId" [(ngModel)]="senderAccountId" name="senderAccountId"
+                [class.is-invalid]="errors['senderAccountId'].length">
+                <option value=''>Choose Account type</option>
+                <option *ngFor="let account of accounts" value={{account.accountId}}>{{account.accountName}}</option>
+            </select>
+            <div class="invalid-feedback" *ngFor="let em of errors['senderAccountId']">
+                {{em}}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="receiverAccountId">To</label>
+            <select class="custom-select" id="receiverAccountId" [(ngModel)]="receiverAccountId"
+                name="receiverAccountId" [class.is-invalid]="errors['receiverAccountId'].length">
+                <option value=''>Choose Account type</option>
+                <option *ngFor="let account of accounts" value={{account.accountId}}>{{account.accountName}}</option>
+            </select>
+            <div class="invalid-feedback" *ngFor="let em of errors['receiverAccountId']">
+                {{em}}
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" [(ngModel)]="amount" name="amount" class="form-control" id="amount"
+                aria-describedby="amount" [class.is-invalid]="errors['amount'].length" />
+            <div class="invalid-feedback" *ngFor="let em of errors['amount']">
+                {{em}}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="remarks">Remarks</label>
+            <input type="text" [(ngModel)]="remarks" name="remarks" class="form-control" id="remarks"
+                aria-describedby="amount" />
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="transfer()">Submit</button>
+</form>
